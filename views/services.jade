@@ -5,9 +5,14 @@ block body
 		h2 Services we provide
 
 		//- Implement filtering here
+		b Filter By &nbsp
+		select(onchange="location = this.value;")
+			option(value='/services')
+			option(value='/services?filterBy=repair' selected=(filterBy === 'repair')) repair
+			option(value='/services?filterBy=maintenance' selected=(filterBy === 'maintenance')) maintenance
+			option(value='/services?filterBy=cosmetic' selected=(filterBy === 'cosmetic')) cosmetic
 
 		for service in services
 			h4= service.job
 			p= service.cost
 			p= service.type
-
