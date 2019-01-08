@@ -65,10 +65,12 @@ module.exports = {
                 var review = arrayList[reviewIndex];
                 for (var dataIndex in review) {
                     var data = review[dataIndex];
-                    if (data['content'] === searchBy) {
+                    var dataContent = data['content'] && data['content'] !== undefined && data['content'] !== null && data['content'] || "";
+                    var dataSource = data['source'] && data['source'] !== undefined && data['source'] !== null && data['source'] || "";
+                    if (dataContent.toLowerCase().startsWith(searchBy.toLowerCase())) {
                         searchedArray.push([data]);
                     }
-                    else if (data['source'] === searchBy) {
+                    else if (dataSource.toLowerCase().startsWith(searchBy.toLowerCase())) {
                         searchedArray.push([data]);
                     }
                 }

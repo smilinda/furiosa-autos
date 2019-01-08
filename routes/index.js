@@ -48,9 +48,10 @@ router.get('/services', function(req, res, next) {
 */
 router.get('/reviews', function(req, res, next) {
 	var searchBy = req.query.searchBy; //QueryString param to get search value.
+	searchBy = searchBy && searchBy.length && searchBy.trim();
 	return Promise.all([api.fetchCustomerReviews(), api.fetchCorporateReviews()])
 		.then(function(reviews) {
-			res.render('reviews', {reviews: dataUtils.searchArrayBy(reviews, searchBy), searchBy: searchBy || ""});
+			res.render('reviews', {reviews: dataUtils.searchArrayBy(reviews, searchBy), searchBy: searchBy});
 	});
 });
 
