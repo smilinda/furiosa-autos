@@ -5,8 +5,8 @@ block body
 		h2 Customer reviews
 
 		//- Implement search here
-		b Search &nbsp;
-		input(type="text", placeholder="", value=searchBy, onkeyup="location = '/reviews?searchBy=' + this.value")
+		input(type="text", value=searchBy, onchange="location = '/reviews?searchBy=' + this.value")
+		input(type="button", value="Search")
 
 		for review in reviews
 			for data in review
