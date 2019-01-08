@@ -5,8 +5,11 @@ block body
 		h2 Customer reviews
 
 		//- Implement search here
+		b Search &nbsp;
+		input(type="text", placeholder="", value=searchBy, onkeyup="location = '/reviews?searchBy=' + this.value")
 
 		for review in reviews
-			blockquote
-				p= review.content
-				footer= review.source
+			for data in review
+				blockquote
+					p= data.content
+					footer= data.source
