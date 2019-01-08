@@ -5,8 +5,9 @@ block body
 		h2 Customer reviews
 
 		//- Implement search here
-		input(type="text", value=searchBy, onchange="location = '/reviews?searchBy=' + this.value")
-		input(type="button", value="Search")
+		form(action="/reviews", method="GET")
+			input(type="text", name="searchBy", value=searchBy)
+			input(type="submit", value="Search")
 
 		for review in reviews
 			for data in review
